@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from .views import saludo
+
 urlpatterns = [
+    path("saludos", saludo), #Al no poner argumento entre "" va directo a la pagina raiz
     path('admin/', admin.site.urls),
 ]
