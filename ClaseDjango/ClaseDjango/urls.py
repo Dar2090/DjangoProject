@@ -16,9 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import saludo
+from .views import *
 
 urlpatterns = [
-    path("saludos", saludo), #Al no poner argumento entre "" va directo a la pagina raiz
+    path('', saludo),
+    path('otra-vista/', otra_vista), #Al no poner argumento entre "" va directo a la pagina raiz
+    path('fecha-actual/', fecha_actual),
+    #path('<str:nombre>/', saludo_a), Jerarquias de urls
+    path('saludo-a/<nombre>', saludo_a),
+    path('<int:edad>/<str:nombre>', anio_nacimiento),
+    path('probandoTemplate/', probandoTemplate),
+
     path('admin/', admin.site.urls),
 ]
