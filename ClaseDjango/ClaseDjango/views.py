@@ -31,16 +31,19 @@ def anio_nacimiento(request, edad, nombre):
     #anio = fecha.year - int(edad)
     return HttpResponse(f"Hola {nombre_limpio}! Naciste en {anio}")
 
+nombre = "Pepe"
+apellido = "Salterin"
+#mis_datos = {'nombre': nombre, 'apellido': apellido}
+mi_dict = {'key': 'value'}
 
-def probandoTemplate():
+def probandoTemplate(self):
     miHtml = open("/home/josue/Escritorio/Django_Project/ClaseDjango/ClaseDjango/plantillas/prueba.html")
-    
     plantilla = Template(miHtml.read())
-
     miHtml.close() #Siempre hay que cerrar los archivos
 
-    miContexto = Context()
-
+    miContexto = Context({'nombre': nombre, 'apellido': apellido, 'mi_dict': mi_dict}) #A context se le pasan datos en un dict o mis_datos
     documento = plantilla.render(miContexto) #Aca se renderiza la plantilla
 
     return HttpResponse(documento)
+
+
