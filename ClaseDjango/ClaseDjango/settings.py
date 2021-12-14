@@ -54,7 +54,7 @@ ROOT_URLCONF = 'ClaseDjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r'/home/josue/Escritorio/Django_Project/ClaseDjango/ClaseDjango/plantillas'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

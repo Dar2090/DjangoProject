@@ -9,6 +9,28 @@
 <body>
     Probando las plantillas/templates! 
 
-    {{nombre}} {{apellido}} {{mi_dict}}
+    <br>    
+    {{nombre}} {{apellido}}
+    <br> 
+    {{mi_dict}} {{lista}}
+    <br> <!-- el tag br me genera un salto de linea -->
+
+    {% for valor in lista %}
+    {% comment %} esto es un comentario {% endcomment %}
+        {% if valor < 3 %}
+            {{valor}}  
+            hola
+            <br>  
+        {% elif valor == 3 %} 
+            Paso por el elif
+            <br> 
+        {% else %}
+            Paso por el else
+            <br>
+        {% endif %}
+    {% endfor %}
+
+    
+
 </body>
 </html>

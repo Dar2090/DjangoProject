@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from datetime import datetime
-from django.template import Template, Context
+from django.template import Template, Context, loader 
 
 #Aca se crean las vistas
 
@@ -35,15 +35,20 @@ nombre = "Pepe"
 apellido = "Salterin"
 #mis_datos = {'nombre': nombre, 'apellido': apellido}
 mi_dict = {'key': 'value'}
+mis_datos = {'nombre': nombre, 'apellido': apellido, 'mi_dict': mi_dict, 'lista': [1,2,3,4,5,6]}
 
 def probandoTemplate(self):
-    miHtml = open("/home/josue/Escritorio/Django_Project/ClaseDjango/ClaseDjango/plantillas/prueba.html")
-    plantilla = Template(miHtml.read())
-    miHtml.close() #Siempre hay que cerrar los archivos
+    # miHtml = open("/home/josue/Escritorio/Django_Project/ClaseDjango/ClaseDjango/plantillas/prueba.html")
+    # plantilla = Template(miHtml.read())
+    # miHtml.close() #Siempre hay que cerrar los archivos
 
-    miContexto = Context({'nombre': nombre, 'apellido': apellido, 'mi_dict': mi_dict}) #A context se le pasan datos en un dict o mis_datos
-    documento = plantilla.render(miContexto) #Aca se renderiza la plantilla
-
+    # miContexto = Context({'nombre': nombre, 'apellido': apellido, 'mi_dict': mi_dict, 'lista': [1,2,3,4,5,6]})  #A context se le pasan datos en un dict o mis_datos
+    # documento = plantilla.render(miContexto) #Aca se renderiza la plantilla
+    
+    plantilla = loader.get_template("prueba.html")
+    
+    documento = plantilla.render(mis_datos) #acepta directamente el diccionario
+    
     return HttpResponse(documento)
 
 
