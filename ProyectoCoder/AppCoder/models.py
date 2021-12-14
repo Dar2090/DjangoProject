@@ -26,3 +26,13 @@ class Entregable(models.Model):
     entregado = models.BooleanField()
 
     
+'''Estas son configuraciones nuevas, ahora hay que 
+entrar en setting.py y en INSTALLED_APPS cargar nuestra 
+app de trabajo, de aqui hay que escribir el comando en 
+consola: python3 manage.py makemigrations en la carpeta 
+del proyecto. El makemigrations genera codigo para la base
+de datos basandose en estos modelos. Se crea un archico
+en la carpeta migrations. Luego se ejecuta el comando python3 manage.py migrate para que la BD ejecute este codigo que le envia django'''
+ 
+ 
+ 
