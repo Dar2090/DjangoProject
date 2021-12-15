@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from AppCoder import views
+
+
 urlpatterns = [
-    path('', views.ver_curso),
+    path('ver', views.ver_curso),
+    path('crear', views.crear_curso),
     path('admin/', admin.site.urls),
 ]
